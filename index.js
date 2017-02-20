@@ -47,8 +47,8 @@ function getTrackLinks(pagesUrls) {
 
   return Promise.all(pagesUrls.map(function (index, page) {
     return request(page)
-    }).get()).then(function (pages) {
-      console.log('Extracting track links...')
+  }).get()).then(function (pages) {
+    console.log('Extracting track links...')
 
     return pages.map(extractTrackLink)
   })
