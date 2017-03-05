@@ -30,7 +30,7 @@ function getTrackPages(html) {
   var $ = cheerio.load(html)
 
   // Get only the right links and attach them the full URL
-  return $('.container .menu a').filter(function () {
+  return $('#episodes a').filter(function () {
     return $(this).text().match(/\d+: .*/g)
   }).map(function () {
     return webpage + $(this).attr('href')
@@ -55,13 +55,13 @@ function getTrackLinks(pagesUrls) {
 }
 
 /**
- * Extrats the mp3 link from a track page.
+ * Extracts the mp3 link from a track page.
  * @param  {String} html The HTML of a track page.
  * @return {String}      The track (mp3 file) URL.
  */
 function extractTrackLink(html) {
   var $ = cheerio.load(html)
-  var track = $('.container .content a').first()
+  var track = $('.container .pad a').first()
 
   return track.attr('href')
 }
